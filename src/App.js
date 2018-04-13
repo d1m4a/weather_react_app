@@ -4,14 +4,15 @@ import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 
-const API_KEY = "206ef162d87b300b23d3218954898e08";
+const API_KEY = "68b5c33a00b1e9eb350b0eb1f7313eb5";
 
 class App extends React.Component {
   getWeather = async (e) => {
     e.preventDefault();
-    const api_call = await fetch(`http://samples.openweathermap.org/data/2.5/weather?q=Krasnoyarsk,ru&appid=${API_KEY}`);
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_KEY}&units=metric`;
+    const api_call = await fetch(url);
     const data = api_call.json();
-    console.log(data);
+    console.log( data );
   }
   render() {
     return (
